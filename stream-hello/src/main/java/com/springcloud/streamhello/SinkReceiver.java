@@ -10,10 +10,10 @@ import org.springframework.cloud.stream.messaging.Sink;
  * @author Neo
  * @date 2018/7/5
  */
-@EnableBinding(Sink.class)
+@EnableBinding({Sink.class, SinkSender.class})
 public class SinkReceiver {
     
-    private static Logger logger = LoggerFactory.getLogger(StreamHelloApplication.class);
+    private static Logger logger = LoggerFactory.getLogger(SinkReceiver.class);
     
     @StreamListener(Sink.INPUT)
     public void receive(Object payload) {
