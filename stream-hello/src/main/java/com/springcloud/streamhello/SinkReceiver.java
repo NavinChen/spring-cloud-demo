@@ -5,6 +5,7 @@ import org.slf4j.LoggerFactory;
 import org.springframework.cloud.stream.annotation.EnableBinding;
 import org.springframework.cloud.stream.annotation.StreamListener;
 import org.springframework.cloud.stream.messaging.Sink;
+import org.springframework.integration.annotation.ServiceActivator;
 
 /**
  * @author Neo
@@ -17,7 +18,12 @@ public class SinkReceiver {
     
     @StreamListener(Sink.INPUT)
     public void receive(Object payload) {
-        logger.info("Received:" + payload);
+        logger.info("StreamListener Received:" + payload);
+    }
+    
+    @ServiceActivator(inputChannel = Sink.INPUT + "2")
+    public void receive2(Object payload) {
+        logger.info("ServiceActivator Received:" + payload);
     }
     
 }

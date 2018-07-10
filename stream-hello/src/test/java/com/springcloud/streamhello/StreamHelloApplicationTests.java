@@ -18,6 +18,9 @@ public class StreamHelloApplicationTests {
     @Autowired
     private MessageChannel input;
     
+    @Autowired
+    private SinkSender2 sinkSender2;
+    
     @Test
     public void sinkSenderTest() {
         sinkSender.output().send(MessageBuilder.withPayload("From SinkSender").build());
