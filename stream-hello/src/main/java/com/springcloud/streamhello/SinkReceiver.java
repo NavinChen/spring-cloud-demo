@@ -6,6 +6,10 @@ import org.springframework.cloud.stream.annotation.EnableBinding;
 import org.springframework.cloud.stream.annotation.StreamListener;
 import org.springframework.cloud.stream.messaging.Sink;
 import org.springframework.integration.annotation.ServiceActivator;
+import org.springframework.integration.annotation.Transformer;
+
+import java.text.SimpleDateFormat;
+import java.util.Date;
 
 /**
  * @author Neo
@@ -24,6 +28,11 @@ public class SinkReceiver {
     @ServiceActivator(inputChannel = Sink.INPUT + "2")
     public void receive2(Object payload) {
         logger.info("ServiceActivator Received:" + payload);
+    }
+    
+    @Transformer(inputChannel = Sink.INPUT + "2", outputChannel = Sink.INPUT + "2")
+    public Object transform(Date message) {
+        return new SimpleDateFormat("yyyy-MM-dd HH:mm:ss").format(message);
     }
     
 }
