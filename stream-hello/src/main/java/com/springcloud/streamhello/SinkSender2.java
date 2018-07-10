@@ -35,4 +35,9 @@ public class SinkSender2 {
         MessageChannel output();
     }
     
+    /*@Bean
+    @InboundChannelAdapter(value = "user1", poller = @Poller(fixedDelay = "2000"))
+    public MessageSource<String> userMessageSource() {
+        return () -> new GenericMessage<>("{\"name\":\"didi\",\"age\":30}");
+    }*/
 }
