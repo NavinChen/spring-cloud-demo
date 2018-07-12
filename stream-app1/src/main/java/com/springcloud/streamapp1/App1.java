@@ -2,14 +2,9 @@ package com.springcloud.streamapp1;
 
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
-import org.springframework.cloud.stream.annotation.EnableBinding;
-import org.springframework.cloud.stream.annotation.StreamListener;
 import org.springframework.cloud.stream.annotation.rxjava.EnableRxJavaProcessor;
 import org.springframework.cloud.stream.annotation.rxjava.RxJavaProcessor;
-import org.springframework.cloud.stream.messaging.Processor;
 import org.springframework.context.annotation.Bean;
-import org.springframework.integration.annotation.ServiceActivator;
-import org.springframework.messaging.handler.annotation.SendTo;
 
 import java.util.Date;
 
